@@ -47,7 +47,7 @@ typedef struct Lista{
  int length (tLista*);
  // retorna la posición del elemento actual F LISTO
  int currPos (tLista*);
- // mueve la posición actual a una especificada D
+ // mueve la posición actual a una especificada D(puede no necesario)
  void moveToPos (tLista*,int);
  // obtiene el valor del elemento actual de la lista S LISTO
  elemento getValue (tLista*);
