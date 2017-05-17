@@ -31,9 +31,14 @@ void movetoEnd(){
 	pos = listSize -1;	
 }
 
-void append(elemento item)
+int append(elemento item)
 {
 	struct tNodo *temp = (Node*)malloc(sizeof(struct Node));
+	if (temp == NULL) 
+	  {
+	      printf("No hay suficiente memoria disponible \n");
+	      return 0;
+	   }
 	//(*temp).data = x;
 	temp->info =item;
 	
@@ -56,6 +61,7 @@ void append(elemento item)
 		tail=temp;
 	}
 	listSize++;
+	return 1;
 }
 
 
