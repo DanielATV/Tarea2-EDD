@@ -5,7 +5,8 @@ tLista *crearLista()
 	tLista *nueva = (tLista *) malloc(sizeof(tLista));
 	nueva->head = NULL;
 	nueva->tail = NULL;
-	nueva->siese = 0;
+	nueva->listSize = 0;
+	nueva->listSize = 0;
 	return nueva;
 }
 
