@@ -31,8 +31,6 @@ void movetoEnd(){
 	pos = listSize -1;	
 }
 
-//******************
-
 void append(elemento item)
 {
 	struct tNodo *temp = (Node*)malloc(sizeof(struct Node));
@@ -97,4 +95,12 @@ void next()
 int currPos()
 {	
 	return pos;
+}
+
+int lenght(){
+	return listSize;
+}
+
+elemto getValue(){
+	return info;
 }
