@@ -65,7 +65,7 @@ int append(tLista *l,elemento item)
 }
 
 
-tElemLista remove(tLista *l)
+elemento remove(tLista *l)
 {	
 	elemento item = l->curr->info;
 	
