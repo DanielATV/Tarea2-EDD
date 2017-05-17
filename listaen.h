@@ -23,7 +23,7 @@ typedef struct Lista{
  unsigned int pos; // Posición actual en la lista
  
  // crea la lista
- lLista *crearLista();
+ tLista *crearLista();
  // borra todos los elementos de la lista, reinicializándola vacía D
  void clear ();
  // inserta un elemento en la posición actual de la lista S
