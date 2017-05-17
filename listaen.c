@@ -28,52 +28,44 @@ int insert(tLista *l, elemento item){
 	return 1; //La operacion ocurrio con exito
 }
 
-void movetoEnd(tLista *l){
-	l->curr = l->tail;
-	l->pos = l->listSize -1;	
-}
-
-int append(tLista *l,elemento item)
+int append(tLista* l,elemento item)
 {
-	struct tNodo *temp = (Node*)malloc(sizeof(struct Node));
-	if (temp == NULL) 
-	  {
-	      printf("No hay suficiente memoria disponible \n");
-	      return 0;
-	   }
-	//(*temp).data = x;
-	temp->info =item;
+	tNodo *aux = l->tail->sig;
+	l->tail->sig =  (tNodo *)malloc(sizeof(tNodo));
+	if(l->tail->sig == NULL)
+	{
+	        return 0;
+	}
+
+	aux->info = item;
+	aux->sig=NULL;
 	
-	temp->next = NULL;
+	
+	
+	
 	if (l->head == NULL)
 	{
-		l->head = temp;
-		l->tail = temp;
+		l->head = aux;
+		l->tail = aux;
 
 	}
 	else
 	{
-		tNodo *temp2= l->curr;
-		while(temp2->sig!=NULL)
-		{
-			temp2=temp2->sig;
-
-		}
-		temp2->sig = temp;
-		l->tail=temp;
+		l->tail = aux;
+		
 	}
 	l->listSize++;
 	return 1;
 }
 
 
-elemento remove(tLista *l)
+elemento lremove(tLista *l)
 {	
 	elemento item = l->curr->info;
 	
 	
-	Node *temp = l->head;
-	while(temp->sig!=l->curr)
+	tNodo *temp = l->head;
+	while(temp->sig != l->curr)
 	{
 		temp = temp->l->sig;
 		
@@ -89,6 +81,16 @@ elemento remove(tLista *l)
 
 }
 
+void moveToStart(tLista* l){
+	l -> pos = 0;
+	l -> curr = l -> head;
+
+}
+
+void movetoEnd(tLista *l){
+	l->curr = l->tail;
+	l->pos = l->listSize -1;	
+}
 
 void next(tLista *l)
 {	
@@ -100,21 +102,15 @@ void next(tLista *l)
 	}
 }
 
+int lenght(tLista *l){
+	return l->listSize;
+}
+
 int currPos(tLista *l)
 {	
 	return l->pos;
 }
 
-int lenght(tLista *l){
-	return l->listSize;
-}
-
 elemento getValue(tLista *l){
 	return l->curr->info;
-}
-
-void moveToStart(tLista* l){
-	l -> pos = 0;
-	l -> curr = l -> head;
-
 }
