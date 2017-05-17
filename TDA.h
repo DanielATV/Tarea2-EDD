@@ -1,7 +1,8 @@
-typedef struct node {
-    int val;
-    struct node * next;
-} node_t;
+typedef struct Node{ 
+    int comienzo; 
+    int final;
+    struct Node* next;
+}NOde;
 
 tLista {
 tNodo *head;
