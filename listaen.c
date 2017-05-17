@@ -33,29 +33,32 @@ void movetoEnd(){
 
 void append(elemento item)
 {
-	struct tNodo *temp = (Node*)malloc(sizeof(struct Node));
-	//(*temp).data = x;
-	temp->info =item;
-	
-	temp->next = NULL;
-	if (head == NULL)
+	tNodo *aux = l->tail->sig;
+	l->tail->sig =  (tNodo *)malloc(sizeof(tNodo));
+	if(l->tail->sig == NULL)
 	{
-		head = temp;
-		tail = temp;
+	        return 0;
+	}
+
+	aux->info = item;
+	aux->sig=NULL;
+	
+	
+	
+	
+	if (l->head == NULL)
+	{
+		l->head = aux;
+		l->tail = aux;
 
 	}
 	else
 	{
-		tNodo *temp2= curr;
-		while(temp2->sig!=NULL)
-		{
-			temp2=temp2->sig;
-
-		}
-		temp2->sig = temp;
-		tail=temp;
+		l->tail = aux;
+		
 	}
-	listSize++;
+	l->listSize++;
+	return 1;
 }
 
 
