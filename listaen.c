@@ -101,6 +101,6 @@ int lenght(){
 	return listSize;
 }
 
-elemto getValue(){
+elemento getValue(){
 	return info;
 }
