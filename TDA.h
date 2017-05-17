@@ -1,8 +1,8 @@
-typedef struct Node{ 
-    int comienzo; 
-    int final;
-    struct Node* next;
-}NOde;
+typedef struct nodo {
+tElemLista info; // el elemento en sí
+struct nodo *sig; // puntero autoreferencial
+// al proximo nodo
+} tNodo;
 
 tLista {
 tNodo *head;
