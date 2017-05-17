@@ -12,26 +12,26 @@ tLista *crearLista(){
 	return nueva;
 }
 
-int insert(elemento item){
-	tNodo *aux = curr->sig;
-	curr->sig = (tNodo *)malloc(sizeof(tNodo));
-	if (curr->sig == NULL){
-		curr->sig = aux;
+int insert(tLista *l, elemento item){
+	tNodo *aux = l->curr->sig;
+	l->curr->sig = (tNodo *)malloc(sizeof(tNodo));
+	if (l->curr->sig == NULL){
+		l->curr->sig = aux;
 		return 0; //Retorna 0 si falla.
 	}
-	curr->sig->info = item;
-	curr->sig->sig = aux;
-	if(curr == tail) tail = curr->sig;
-	listSize++;
+	l->curr->sig->info = item;
+	l->curr->sig->sig = aux;
+	if(l->curr == l->tail) l->tail = l->curr->sig;
+	l->listSize++;
 	return 1; //La operacion ocurrio con exito
 }
 
-void movetoEnd(){
-	curr = tail;
-	pos = listSize -1;	
+void movetoEnd(tLista *l){
+	l->curr = l->tail;
+	l->pos = l->listSize -1;	
 }
 
-int append(elemento item)
+int append(tLista *l,elemento item)
 {
 	struct tNodo *temp = (Node*)malloc(sizeof(struct Node));
 	if (temp == NULL) 
@@ -43,43 +43,43 @@ int append(elemento item)
 	temp->info =item;
 	
 	temp->next = NULL;
-	if (head == NULL)
+	if (l->head == NULL)
 	{
-		head = temp;
-		tail = temp;
+		l->head = temp;
+		l->tail = temp;
 
 	}
 	else
 	{
-		tNodo *temp2= curr;
+		tNodo *temp2= l->curr;
 		while(temp2->sig!=NULL)
 		{
 			temp2=temp2->sig;
 
 		}
 		temp2->sig = temp;
-		tail=temp;
+		l->tail=temp;
 	}
-	listSize++;
+	l->listSize++;
 	return 1;
 }
 
 
-tElemLista remove()
+tElemLista remove(tLista *l)
 {	
-	elemento item = curr->info;
+	elemento item = l->curr->info;
 	
 	
-	Node *temp = head;
-	while(temp->sig!=curr)
+	Node *temp = l->head;
+	while(temp->sig!=l->curr)
 	{
-		temp = temp->sig;
+		temp = temp->l->sig;
 		
 	}	
 	
-	temp->sig = curr->sig;
-	curr -> (temp->sig);
-	listSize--;
+	temp->sig = l->curr->sig;
+	l->curr -> (temp->sig);
+	l->listSize--;
 	
 	
 	return info;	
@@ -88,25 +88,25 @@ tElemLista remove()
 }
 
 
-void next()
+void next(tLista *l)
 {	
-	if(curr != tail) 
+	if(l->curr != l->tail) 
 	{
-		curr = curr->sig;
-		pos++;
+		l->curr = l->curr->sig;
+		l->pos++;
 		
 	}
 }
 
-int currPos()
+int currPos(tLista *l)
 {	
-	return pos;
+	return l->pos;
 }
 
-int lenght(){
-	return listSize;
+int lenght(tLista *l){
+	return l->listSize;
 }
 
-elemento getValue(){
-	return info;
+elemento getValue(tLista *l){
+	return l->curr->info;
 }
