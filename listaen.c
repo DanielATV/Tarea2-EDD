@@ -25,3 +25,74 @@ int insert(elemento item){
 	listSize++;
 	return 1; //La operacion ocurrio con exito
 }
+
+//******************
+
+void append(elemento item)
+{
+	struct tNodo *temp = (Node*)malloc(sizeof(struct Node));
+	//(*temp).data = x;
+	temp->info =item;
+	
+	temp->next = NULL;
+	if (head == NULL)
+	{
+		head = temp;
+		tail = temp;
+
+	}
+	else
+	{
+		tNodo *temp2= curr;
+		while(temp2->sig!=NULL)
+		{
+			temp2=temp2->sig;
+
+		}
+		temp2->sig = temp;
+		tail=temp;
+	}
+	listSize++;
+}
+
+
+tElemLista remove()
+{	
+	elemento item = curr->info;
+	
+	
+	Node *temp = head;
+	while(temp->sig!=curr)
+	{
+		temp = temp->sig;
+		
+	}	
+	
+	temp->sig = curr->sig;
+	curr -> (temp->sig);
+	listSize--;
+	
+	
+	return info;	
+
+
+}
+
+
+void next()
+{	
+	if(curr != head) curr = curr->sig;
+}
+
+int currPos()
+{	
+	if (head ==curr) return 0;
+	else
+	{
+		int pos=1;
+		tNodo *temp = head;
+		while (tNodo->sig != curr)	pos++;
+
+		return pos;
+	}
+}
