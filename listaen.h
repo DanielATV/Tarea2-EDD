@@ -1,15 +1,17 @@
 #ifndef __lista_en_h__
 #define __lista_en_h__
 
+#include <stdlib.h>
+
 typedef struct elemento{
  int comienzo;
  int final;
-}elemento;
+} elemento;
 
 typedef struct nodo {
-elemento info; // el elemento en sí
-struct nodo *sig; // puntero autoreferencial
-// al proximo nodo
+ elemento info; // el elemento en sí
+ struct nodo *sig; // puntero autoreferencial
+                   // al proximo nodo
 } tNodo;
 
 //Estructura de la lista:
@@ -21,8 +23,11 @@ typedef struct Lista{
  unsigned int pos; // Posición actual en la lista
 } tLista;
 
+
+// crea la lista
+lLista *crearLista();
 // borra todos los elementos de la lista, reinicializándola vacía D
-void clear ();
+void clear (lista_t *);
 // inserta un elemento en la posición actual de la lista S
 int insert (tElemLista item);
 // agrega un elemento al final de la lista ******
