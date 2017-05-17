@@ -41,7 +41,7 @@ void append( int x, int y)
 
 void Print()
 {
-	struct Node* temp=head;
+	//struct Node* temp=head;
 	printf("List is: ");
 
 	while(head != NULL)
@@ -57,7 +57,7 @@ void Print()
 int main(int argv, char *argc[]){
 
 //Para insert y print
-	Node* head = NULL;
+	//Node* head = NULL;
 	append(2,1);
 	append(3,2);
 	append(4,1);
