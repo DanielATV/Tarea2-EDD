@@ -86,18 +86,15 @@ tElemLista remove()
 
 void next()
 {	
-	if(curr != head) curr = curr->sig;
+	if(curr != tail) 
+	{
+		curr = curr->sig;
+		pos++;
+		
+	}
 }
 
 int currPos()
 {	
-	if (head ==curr) return 0;
-	else
-	{
-		int pos=1;
-		tNodo *temp = head;
-		while (tNodo->sig != curr)	pos++;
-
-		return pos;
-	}
+	return pos;
 }
