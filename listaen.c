@@ -112,3 +112,9 @@ int lenght(tLista *l){
 elemento getValue(tLista *l){
 	return l->curr->info;
 }
+
+void moveToStart(tLista* l){
+	l -> pos = 0;
+	l -> curr = l -> head;
+
+}
