@@ -34,13 +34,13 @@ void next ()
 // No produce cambios si está en la cola de la lista D
 void prev ()
 
-// retorna el número de elementos en la lista ******** 
+// retorna el número de elementos en la lista s
 int length ()
-// retorna la posición del elemento actual S
+// retorna la posición del elemento actual F
 int currPos ()
-// mueve la posición actual a una especificada F 
+// mueve la posición actual a una especificada D
 void moveToPos (int pos)
-// obtiene el valor del elemento actual de la lista D
+// obtiene el valor del elemento actual de la lista S
 tElemLista getValue ()
  
  
