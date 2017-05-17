@@ -3,9 +3,9 @@
 tLista *crearLista()
 {
 	tLista *nueva = (tLista *) malloc(sizeof(tLista));
-	nueva->primero = NULL;
-	nueva->ultimo = NULL;
-	nueva->largo = 0;
+	nueva->head = NULL;
+	nueva->tail = NULL;
+	nueva->siese = 0;
 	return nueva;
 }
 
