@@ -1,4 +1,4 @@
-#include "lista_en.h"
+#include "listaen.h"
 
 tLista *crearLista(){
 	tLista* nueva = (tLista *) malloc(sizeof(tLista));
