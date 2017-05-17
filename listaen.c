@@ -28,7 +28,8 @@ int insert(elemento item){
 
 void movetoEnd(){
 	for(pos; pos < listSize -1; pos++) curr = curr->sig;
-  
+}
+
 //******************
 
 void append(elemento item)
