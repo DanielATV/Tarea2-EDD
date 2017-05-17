@@ -25,7 +25,7 @@ typedef struct Lista{
 
 
 // crea la lista
-lLista *crearLista();
+tLista * crearLista();
 // borra todos los elementos de la lista, reinicializándola vacía D
 void clear (lista_t *);
 // inserta un elemento en la posición actual de la lista S
