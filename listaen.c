@@ -1,10 +1,11 @@
 #include "lista_en.h"
 
-tLista *crearLista()
-{
+tLista *crearLista(){
 	tLista *nueva = (tLista *) malloc(sizeof(tLista));
-	nueva->head = NULL;
+	nueva->head = (tNodo)malloc(sizeof(tNodo));
+	nueva->head->sig = NULL;
 	nueva->tail = NULL;
+	nueva->curr = NULL;
 	nueva->listSize = 0;
 	nueva->pos = 0;
 	return nueva;
