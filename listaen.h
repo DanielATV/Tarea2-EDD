@@ -1,3 +1,6 @@
+#ifndef __lista_en_h__
+#define __lista_en_h__
+
 typedef struct Node{
  int comienzo;
  int final;
@@ -44,6 +47,5 @@ int currPos ();
 void moveToPos (int pos);
 // obtiene el valor del elemento actual de la lista S
 tElemLista getValue ();
- 
- 
 
+#endif
