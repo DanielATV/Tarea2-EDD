@@ -1,3 +1,8 @@
+typedef struct Node{
+ int comienzo;
+ int final;
+}NOde;
+
 typedef struct nodo {
 tElemLista info; // el elemento en sí
 struct nodo *sig; // puntero autoreferencial
