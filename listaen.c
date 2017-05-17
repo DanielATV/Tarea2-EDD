@@ -2,7 +2,7 @@
 
 tLista *crearLista(){
 	tLista *nueva = (tLista *) malloc(sizeof(tLista));
-	nueva->head = (tNodo)malloc(sizeof(tNodo));
+	nueva->head = (tNodo *)malloc(sizeof(tNodo));
 	nueva->head->sig = NULL;
 	nueva->tail = NULL;
 	nueva->curr = NULL;
@@ -13,7 +13,7 @@ tLista *crearLista(){
 
 int insert(elemento item){
 	tNodo *aux = curr->sig;
-	curr->sig = (tNodo*)malloc(sizeof(tNodo));
+	curr->sig = (tNodo *)malloc(sizeof(tNodo));
 	if (curr->sig == NULL){
 		curr->sig = aux;
 		return 0; //Retorna 0 si falla.
