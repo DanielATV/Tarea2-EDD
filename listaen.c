@@ -14,7 +14,7 @@ tLista *crearLista(){
 
 int insert(elemento item){
 	tNodo *aux = curr->sig;
-	curr->sig = (tNodo*)malloc(sizeof(tNodo));
+	curr->sig = (tNodo *)malloc(sizeof(tNodo));
 	if (curr->sig == NULL){
 		curr->sig = aux;
 		return 0; //Retorna 0 si falla.
@@ -26,6 +26,9 @@ int insert(elemento item){
 	return 1; //La operacion ocurrio con exito
 }
 
+void movetoEnd(){
+	for(pos; pos < listSize -1; pos++) curr = curr->sig;
+  
 //******************
 
 void append(elemento item)
