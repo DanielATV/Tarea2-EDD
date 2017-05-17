@@ -25,3 +25,7 @@ int insert(elemento item){
 	listSize++;
 	return 1; //La operacion ocurrio con exito
 }
+
+void movetoEnd(){
+	for(pos; pos < listSize -1; pos++) curr = curr->sig;
+}
