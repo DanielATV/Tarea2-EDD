@@ -1,5 +1,16 @@
 #include "lista_en.h"
 
+tLista *crearLista(){
+	tLista* nueva = (tLista *) malloc(sizeof(tLista));
+	tNodo* dummy = (tNodo *)malloc(sizeof(tNodo));
+	nueva->head = dummy;
+	dummy->sig = NULL;
+	nueva->tail = NULL;
+	nueva->curr = NULL;
+	nueva->listSize = 0;
+	nueva->pos = 0;
+	return nueva;
+}
 
 int insert(elemento item){
 	tNodo *aux = curr->sig;
