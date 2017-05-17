@@ -1,47 +1,112 @@
-typedef struct Node{ 
-    int comienzo; 
-    int final;
-    struct Node* next;
-}NOde;
+#include "lista_en.h"
 
-tLista {
-tNodo *head;
-tNodo *tail;
-tNodo *curr;
-unsigned int listSize;
-unsigned int pos; // posición actual en la lista
-public:
- // métodos de la clase
-};
+tLista *crearLista(){
+	tLista* nueva = (tLista *) malloc(sizeof(tLista));
+	tNodo* dummy = (tNodo *)malloc(sizeof(tNodo));
+	nueva->head = dummy;
+	dummy->sig = NULL;
+	nueva->tail = NULL;
+	nueva->curr = NULL;
+	nueva->listSize = 0;
+	nueva->pos = 0;
+	return nueva;
+}
 
-// borra todos los elementos de la lista, reinicializándola vacía
-void clear ()
-// inserta un elemento en la posición actual de la lista
-int insert (tElemLista item)
-// agrega un elemento al final de la lista ******
-int append (tElemLista item)
-// borra el elemento actual y retorna su valor 
-tElemLista remove ()
+int insert(tLista *l, elemento item){
+	tNodo *aux = l->curr->sig;
+	l->curr->sig = (tNodo *)malloc(sizeof(tNodo));
+	if (l->curr->sig == NULL){
+		l->curr->sig = aux;
+		return 0; //Retorna 0 si falla.
+	}
+	l->curr->sig->info = item;
+	l->curr->sig->sig = aux;
+	if(l->curr == l->tail) l->tail = l->curr->sig;
+	l->listSize++;
+	return 1; //La operacion ocurrio con exito
+}
 
- // mueve la posición actual al comienzo de la lista
-void moveToStart ()
-// mueve la posición actual al final de la lista
-void moveToEnd ()
-// mueve la posición actual al siguiente elemento de la lista.
-// No produce cambios si está en la cabeza de la lista
-void next ()
-// mueve la posición actual al elemento anterior de la lista.
-// No produce cambios si está en la cola de la lista
-void prev ()
+void movetoEnd(tLista *l){
+	l->curr = l->tail;
+	l->pos = l->listSize -1;	
+}
 
-// retorna el número de elementos en la lista ********
-int length ()
-// retorna la posición del elemento actual
-int currPos ()
-// mueve la posición actual a una especificada
-void moveToPos (int pos)
-// obtiene el valor del elemento actual de la lista
-tElemLista getValue ()
- 
- 
+int append(tLista *l,elemento item)
+{
+	struct tNodo *temp = (Node*)malloc(sizeof(struct Node));
+	if (temp == NULL) 
+	  {
+	      printf("No hay suficiente memoria disponible \n");
+	      return 0;
+	   }
+	//(*temp).data = x;
+	temp->info =item;
+	
+	temp->next = NULL;
+	if (l->head == NULL)
+	{
+		l->head = temp;
+		l->tail = temp;
 
+	}
+	else
+	{
+		tNodo *temp2= l->curr;
+		while(temp2->sig!=NULL)
+		{
+			temp2=temp2->sig;
+
+		}
+		temp2->sig = temp;
+		l->tail=temp;
+	}
+	l->listSize++;
+	return 1;
+}
+
+
+tElemLista remove(tLista *l)
+{	
+	elemento item = l->curr->info;
+	
+	
+	Node *temp = l->head;
+	while(temp->sig!=l->curr)
+	{
+		temp = temp->l->sig;
+		
+	}	
+	
+	temp->sig = l->curr->sig;
+	l->curr -> (temp->sig);
+	l->listSize--;
+	
+	
+	return info;	
+
+
+}
+
+
+void next(tLista *l)
+{	
+	if(l->curr != l->tail) 
+	{
+		l->curr = l->curr->sig;
+		l->pos++;
+		
+	}
+}
+
+int currPos(tLista *l)
+{	
+	return l->pos;
+}
+
+int lenght(tLista *l){
+	return l->listSize;
+}
+
+elemento getValue(tLista *l){
+	return l->curr->info;
+}
