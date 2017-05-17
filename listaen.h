@@ -33,7 +33,7 @@ typedef struct Lista{
  int append (tLista*,tElemLista);
  // borra el elemento actual y retorna su valor  F LISTO
  elemento remove (tLista*);
- // mueve la posición actual al comienzo de la lista D
+ // mueve la posición actual al comienzo de la lista D LISTO
  void moveToStart (tLista*);
  // mueve la posición actual al final de la lista S LISTO
  void moveToEnd (tLista*);
