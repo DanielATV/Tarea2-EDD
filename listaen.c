@@ -6,7 +6,7 @@ tLista *crearLista()
 	nueva->head = NULL;
 	nueva->tail = NULL;
 	nueva->listSize = 0;
-	nueva->listSize = 0;
+	nueva->pos = 0;
 	return nueva;
 }
 
