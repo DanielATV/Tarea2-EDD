@@ -59,26 +59,19 @@ int append(tLista* l,elemento item)
 }
 
 
-elemento lremove(tLista *l)
-{	
+elemento lremove(tLista *l){
+	int i;
 	elemento item = l->curr->info;
+	tNodo* aux = l->curr->sig;
+	l->curr = l->head;
 	
-	
-	tNodo *temp = l->head;
-	while(temp->sig != l->curr)
-	{
-		temp = temp->l->sig;
-		
-	}	
-	
-	temp->sig = l->curr->sig;
-	l->curr -> (temp->sig);
+	for(i = 0; i < l->pos -1;i++) l->curr = l->curr->sig;
+
+	l->curr->sig = aux;
+	l->curr = aux;
+
 	l->listSize--;
-	
-	
-	return info;	
-
-
+	return item;	
 }
 
 void moveToStart(tLista* l){
