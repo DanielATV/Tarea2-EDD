@@ -41,7 +41,7 @@ typedef struct Lista{
  // No produce cambios si está en la cabeza de la lista F LISTO
  void next (tLista*);
  // mueve la posición actual al elemento anterior de la lista.
- // No produce cambios si está en la cola de la lista D
+ // No produce cambios si está en la cola de la lista D LISTO
  void prev (tLista*);
  // retorna el número de elementos en la lista s LISTO
  int length (tLista*);
