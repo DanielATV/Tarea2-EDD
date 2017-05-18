@@ -92,6 +92,17 @@ void movetoEnd(tLista *l){
 	l->pos = l->listSize -1;	
 }
 
+void prev (tLista* l){
+	int aux,i;
+	aux = l -> pos;
+	moveToStart(l);
+	for (i = 0; i<aux; i++){
+		curr = l->curr;
+		next(l);
+	}
+	l -> pos = aux - 1;
+}
+
 void next(tLista *l)
 {	
 	if(l->curr != l->tail) 
