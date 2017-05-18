@@ -83,7 +83,7 @@ elemento lremove(tLista *l)
 
 void moveToStart(tLista* l){
 	l -> pos = 0;
-	l -> curr = l -> head;
+	l -> curr = l -> head -> dummy -> sig;
 
 }
 
