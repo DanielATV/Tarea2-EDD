@@ -32,7 +32,7 @@ int insert (tLista*,elemento);
 // agrega un elemento al final de la lista LISTO
 int append (tLista*,elemento);
 // borra el elemento actual y retorna su valor  F LISTO
-elemento remove (tLista*);
+elemento lremove (tLista*);
 // mueve la posición actual al comienzo de la lista D LISTO
 void moveToStart (tLista*);
 // mueve la posición actual al final de la lista S LISTO
@@ -56,8 +56,8 @@ void Print(tLista *);
 // imprime un elemento F
 void Printelemento(elemento);
 // modifica el elemento.comienzo de el nodo actual de la lista S
-void modificarC(tlista*,int);
+void modificarC(tLista*,int);
 // modifica el elemento.final de el nodo actual de la lista S
-void modificarF(tlista*,int);
+void modificarF(tLista*,int);
 
 #endif
