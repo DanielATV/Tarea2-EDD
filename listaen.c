@@ -58,7 +58,6 @@ int append(tLista *l, elemento item)
 
 
 elemento lremove(tLista *l){
-	int i;	
 	tNodo *aux = l->curr->sig;
 	elemento item = l->curr->sig->info;
 
