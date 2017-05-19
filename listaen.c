@@ -68,11 +68,6 @@ void moveToStart(tLista* l){
 	l -> curr = l -> head;
 
 }
-
-void movetoEnd(tLista *l){
-	l->curr = l->tail;
-	l->pos = l->listSize -1;	
-}
 //funciona
 void prev (tLista* l){
 	
@@ -87,6 +82,14 @@ void prev (tLista* l){
 
 
 }
+
+//funciona
+void movetoEnd(tLista *l){
+	l->curr = l->tail;
+	l->pos = l->listSize -1;
+	prev(l);
+}
+
 
 //funciona
 void next(tLista *l)
