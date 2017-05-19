@@ -57,7 +57,10 @@ elemento lremove(tLista *l){
 
 	l->curr->sig = l->curr->sig->sig;
 	free((void *)aux);
-
+	if (l->curr->sig == NULL){ 
+		prev(l);
+		l->pos --;
+	}
 	l->listSize--;
 	return item;	
 }
