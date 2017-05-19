@@ -1,4 +1,4 @@
-void juntar(tLista *l){
+int juntar(tLista *l){
 	
 	int comienzo1 = getValue(l).comienzo;
 	int final1 = getValue(l).final;
@@ -22,8 +22,9 @@ void juntar(tLista *l){
 		//next(l);
 		lremove(l);
 		insert(l,e0);	
-
+		return 0;
 	}
+	return 1;
 
 }
 
