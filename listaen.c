@@ -60,15 +60,12 @@ int append(tLista* l,elemento item)
 
 
 elemento lremove(tLista *l){
-	int i;
-	elemento item = l->curr->info;
-	tNodo* aux = l->curr->sig;
-	l->curr = l->head;
-	
-	for(i = 0; i < l->pos -1;i++) l->curr = l->curr->sig;
+	int i;	
+	tNodo *aux = l->curr->sig;
+	elemento item = l->curr->sig->info;
 
-	l->curr->sig = aux;
-	l->curr = aux;
+	l->curr->sig = l->curr->sig->sig;
+	free((void *)aux);
 
 	l->listSize--;
 	return item;	
