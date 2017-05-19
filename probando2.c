@@ -7,7 +7,7 @@ typedef struct elemento{
 } elemento;
 
 typedef struct nodo {
- elemento *info; // el elemento en sí
+ elemento info; // el elemento en sí
  struct nodo *sig; // puntero autoreferencial
                    // al proximo nodo
 } tNodo;
@@ -51,7 +51,7 @@ tLista *crearLista(){
 	return nueva;
 }
 
-int append(tLista *l, elemento *item)
+int append(tLista *l, elemento item)
 	{
 		tNodo *temp = (tNodo*)malloc(sizeof(tNodo));
 		if (temp==NULL) return 0;
@@ -105,7 +105,7 @@ int append(tLista* l,elemento *item)
 }
 
 */
-int insert(tLista *l, elemento *item){
+int insert(tLista *l, elemento item){
 	tNodo *aux = l->curr->sig;
 	l->curr->sig = (tNodo *)malloc(sizeof(tNodo));
 	if (l->curr->sig == NULL){
@@ -128,7 +128,7 @@ void Print(tLista *L)
 
 	while(temp2 != NULL)
 	{
-		printf("[%d,%d] ",temp2->info->comienzo,temp2->info->final);
+		printf("[%d,%d] ",temp2->info.comienzo,temp2->info.final);
 		temp2 = temp2->sig; 
 	}	
 
@@ -139,21 +139,20 @@ void Print(tLista *L)
 
 int main(){
 	
- 	elemento *e1 = (elemento*)malloc(sizeof(elemento));
-	e1->comienzo =1;
-	e1->final = 2;
-	elemento *e2 = (elemento*)malloc(sizeof(elemento));
-	e2->comienzo =3;
-	e2->final = 5;
+	elemento e1,e2;
+	e1.comienzo =1;
+	e1.final = 2;
+	e2.comienzo =3;
+	e2.final = 5;
 
 	
 	tLista *l = crearLista();
 	
 
-	append(l,e1);
+	insert(l,e1);
 	
 
-	append(l,e2);
+	insert(l,e2);
 	
 	
 	Print(l);
@@ -161,6 +160,5 @@ int main(){
 	
 	return 0;
 }
-
 
 
