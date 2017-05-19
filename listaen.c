@@ -49,8 +49,6 @@ int append(tLista *l, elemento item)
 		}
 		return 0;
 }
-
-
 //funciona
 elemento lremove(tLista *l){
 	tNodo *aux = l->curr->sig;
@@ -82,15 +80,12 @@ void prev (tLista* l){
 
 
 }
-
 //funciona
 void movetoEnd(tLista *l){
 	l->curr = l->tail;
 	l->pos = l->listSize -1;
 	prev(l);
 }
-
-
 //funciona
 int next(tLista *l)
 {	
@@ -111,7 +106,6 @@ int currPos(tLista *l)
 {	
 	return l->pos;
 }
-
 //funciona
 elemento getValue(tLista *l){
 	return l->curr->sig->info;
@@ -141,4 +135,12 @@ void Printelemento(elemento e)
 	printf("\n");
 
 
+}
+//funciona
+void modificarC(tLista *l,int i){
+	l->curr->sig->info.comienzo = i;
+}
+//funciona
+void modificarF(tLista *l,int i){
+	l->curr->sig->info.final = i;
 }
