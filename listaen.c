@@ -42,21 +42,7 @@ void append(elemento item)
 
 	aux->info = item;
 	aux->sig=NULL;
-	
-	
-	
-	
-	if (l->head == NULL)
-	{
-		l->head = aux;
-		l->tail = aux;
-
-	}
-	else
-	{
-		l->tail = aux;
-		
-	}
+	l->tail = aux;
 	l->listSize++;
 	return 1;
 }
