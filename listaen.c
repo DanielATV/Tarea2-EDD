@@ -7,8 +7,8 @@ tLista *crearLista(){
 	tNodo* dummy = (tNodo *)malloc(sizeof(tNodo));
 	dummy->sig = NULL;
 	nueva->head = dummy;
-	nueva->tail = NULL;
-	nueva->curr = NULL;
+	nueva->tail = dummy;
+	nueva->curr = dummy;
 	nueva->listSize = 0;
 	nueva->pos = 0;
 	return nueva;
