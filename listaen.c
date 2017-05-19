@@ -95,7 +95,7 @@ void prev (tLista* l){
 
 void next(tLista *l)
 {	
-	if(l->curr != l->tail) 
+	if(l->curr->sig != l->tail) 
 	{
 		l->curr = l->curr->sig;
 		l->pos++;
