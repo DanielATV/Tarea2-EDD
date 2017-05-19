@@ -1,93 +1,149 @@
-#include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
+#include <stdio.h>
 
+typedef struct elemento{
+ int comienzo;
+ int final;
+} elemento;
 
+typedef struct nodo {
+ elemento *info; // el elemento en sí
+ struct nodo *sig; // puntero autoreferencial
+                   // al proximo nodo
+} tNodo;
 
-typedef struct Node{
-	int datos[2];
-	struct Node* next;
-}Node;
-
+//Estructura de la lista:
 typedef struct Lista{
+ tNodo *head; //Primer elemento
+ tNodo *tail; //Ultimo elemento
+ tNodo *curr; //Elemento actual
+ unsigned int listSize; //Tamaño de la lista
+ unsigned int pos; // Posición actual en la lista
+} tLista;
 
-	struct Node* primero;
-	struct Node* actual;
-	struct Node* ultimo;
-	unsigned int largo;
-	unsigned int pos;
+tLista *crearLista(){
+	tLista* nueva = (tLista *) malloc(sizeof(tLista));
+	/*tNodo* dummy = (tNodo *)malloc(sizeof(tNodo));
+	dummy->sig = NULL;
+	nueva->head = dummy;
+	nueva->tail = NULL;
+	nueva->curr = dummy;
+	nueva->listSize = 0;
+	nueva->pos = 0;
+	*/
+	nueva->head = NULL;
+	nueva->tail = NULL;
+	nueva->curr = NULL;
+	nueva->listSize = 0;
+	nueva->pos = 0;
+	return nueva;
+}
 
-
-
-	tLista *crearLista()
+void append(tLista *l, elemento *item)
 	{
-		Lista *nueva = (Lista*)malloc(sizeof(struct Lista));
-		nueva->primero= NULL;	
-		nueva->ultimo =NULL;
-		nueva->actual =NULL;
-		nueva->largo = 0;
-		return nueva;
-	}
-
-
-
-	void append( int x, int y)
-	{
-		struct Node *temp = (Node*)malloc(sizeof(struct Node));
+		tNodo *temp = (tNodo*)malloc(sizeof(tNodo));
 		//(*temp).data = x;
-		temp->datos[0] = x;
-		temp->datos[1] = y;
+		temp->info = item;
+		
 	
-		temp->next = NULL;
-		if (head == NULL) head = temp;
+		temp->sig = NULL;
+		if (l->head == NULL) l->head = temp;
 		else
 		{
-			Node *temp2= head;
-			while(temp2->next!=NULL)
+			tNodo *temp2= l->head;
+			while(temp2->sig!=NULL)
 			{
-				temp2=temp2->next;
+				temp2=temp2->sig;
 
 			}
-			temp2->next = temp;
+			temp2->sig = temp;
 
 		}
 
 	
 	}
 
-
-
-
-
-	void Print()
+/*
+int append(tLista* l,elemento *item)
+{
+	tNodo *aux =(tNodo *)malloc(sizeof(tNodo));
+	if(aux == NULL)
 	{
-		Node *temp2= head;
-		printf("List is: ");
+	        return 0;
+	}
+
+	l->tail->sig =  aux;
+	aux->info = item;
+	aux->sig=NULL;
+
+	
+
+	
+	
+	
+	
+	
+	l->tail =aux;
+	free(aux);
+	l->listSize++;
+	return 1;
+}
+*/
+/*
+int insert(tLista *l, elemento item){
+	tNodo *aux = l->curr->sig;
+	l->curr->sig = (tNodo *)malloc(sizeof(tNodo));
+	if (l->curr->sig == NULL){
+		l->curr->sig = aux;
+		return 0; //Retorna 0 si falla.
+	}
+	l->curr->sig->info = item;
+	l->curr->sig->sig = aux;
+	if(l->curr == l->tail) l->tail = l->curr->sig;
+	l->listSize++;
+	return 1; //La operacion ocurrio con exito
+}
+*/
+
+void Print(tLista *L)
+{
+	printf("La lista es:");
+	tNodo *temp2= L->head;
+		printf("La lista es: ");
 
 		while(temp2 != NULL)
 		{
-			printf("[%d,%d] ",temp2->datos[0],temp2->datos[1]);
-			temp2 = temp2->next;  //aqui cambiar a actual...
+			printf("[%d,%d] ",temp2->info->comienzo,temp2->info->final);
+			temp2 = temp2->sig; 
 		}	
 
 		printf("\n");
-	}
-
-}tLista;
-
-int main(int argv, char *argc[]){
-
-	Lista *l = crearLista();
-	
-	append(2,1);
-	append(3,2);
-	append(4,1);
-	append(5,2);
-	Print();
 
 
-
-
-	
-	
 }
+
+int main(){
+	
+ 	elemento *e1 = (elemento*)malloc(sizeof(elemento));
+	e1->comienzo =1;
+	e1->final = 2;
+	elemento *e2 = (elemento*)malloc(sizeof(elemento));
+	e2->comienzo =3;
+	e2->final = 5;
+	
+	tLista *l = crearLista();
+
+	append(l,e1);
+	free(e1);
+
+	append(l,e2);
+	free(e2);
+	
+	Print(l);
+	free(l);
+	
+	return 0;
+}
+
+
+
