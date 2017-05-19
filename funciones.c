@@ -27,3 +27,14 @@ void juntar(tLista *l){
 
 }
 
+void juntartodas(tLista *l)
+{
+	moveToStart(l);
+	while(next(l)==0)
+	{
+		while(juntar(l)==0)	juntar(l);
+		next(l);
+	}
+
+}
+
