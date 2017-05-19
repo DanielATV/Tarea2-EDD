@@ -62,10 +62,10 @@ elemento lremove(tLista *l){
 	l->listSize--;
 	return item;	
 }
-
+//funciona
 void moveToStart(tLista* l){
 	l -> pos = 0;
-	l -> curr = l -> head -> sig;
+	l -> curr = l -> head;
 
 }
 
@@ -109,7 +109,7 @@ int currPos(tLista *l)
 elemento getValue(tLista *l){
 	return l->curr->sig->info;
 }
-
+//funciona
 void Print(tLista *L)
 {
 	printf("La lista es:");
@@ -126,7 +126,7 @@ void Print(tLista *L)
 
 
 }
-
+//funciona
 void Printelemento(elemento e)
 {
 	printf("el elemento es:");
