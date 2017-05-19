@@ -23,33 +23,41 @@ typedef struct Lista{
  unsigned int pos; // Posición actual en la lista
 } tLista;
 
- // crea la lista LISTO
- tLista *crearLista();
- // borra todos los elementos de la lista, reinicializándola vacía D
- void clear (tLista*);
- // inserta un elemento en la posición actual de la lista S LISTO
- int insert (tLista*,elemento);
- // agrega un elemento al final de la lista LISTO
- int append (tLista*,tElemLista);
- // borra el elemento actual y retorna su valor  F LISTO
- elemento remove (tLista*);
- // mueve la posición actual al comienzo de la lista D LISTO
- void moveToStart (tLista*);
- // mueve la posición actual al final de la lista S LISTO
- void moveToEnd (tLista*);
- // mueve la posición actual al siguiente elemento de la lista.
- // No produce cambios si está en la cabeza de la lista F LISTO
- void next (tLista*);
- // mueve la posición actual al elemento anterior de la lista.
- // No produce cambios si está en la cola de la lista D LISTO
- void prev (tLista*);
- // retorna el número de elementos en la lista s LISTO
- int length (tLista*);
- // retorna la posición del elemento actual F LISTO
- int currPos (tLista*);
- // mueve la posición actual a una especificada D(puede no necesario)
- void moveToPos (tLista*,int);
- // obtiene el valor del elemento actual de la lista S LISTO
- elemento getValue (tLista*);
+// crea la lista LISTO
+tLista *crearLista();
+// borra todos los elementos de la lista, reinicializándola vacía D
+void clear (tLista*);
+// inserta un elemento en la posición actual de la lista S LISTO
+int insert (tLista*,elemento);
+// agrega un elemento al final de la lista LISTO
+int append (tLista*,elemento);
+// borra el elemento actual y retorna su valor  F LISTO
+elemento remove (tLista*);
+// mueve la posición actual al comienzo de la lista D LISTO
+void moveToStart (tLista*);
+// mueve la posición actual al final de la lista S LISTO
+void moveToEnd (tLista*);
+// mueve la posición actual al siguiente elemento de la lista.
+// No produce cambios si está en la cabeza de la lista F LISTO
+int next (tLista*);
+// mueve la posición actual al elemento anterior de la lista.
+// No produce cambios si está en la cola de la lista D LISTO
+void prev (tLista*);
+// retorna el número de elementos en la lista s LISTO
+int length (tLista*);
+// retorna la posición del elemento actual F LISTO
+int currPos (tLista*);
+// mueve la posición actual a una especificada D(puede no necesario)
+void moveToPos (tLista*,int);
+// obtiene el valor del elemento actual de la lista S LISTO
+elemento getValue (tLista*);
+// imprime la lista F
+void Print(tLista *); 
+// imprime un elemento F
+void Printelemento(elemento);
+// modifica el elemento.comienzo de el nodo actual de la lista S
+void modificarC(tlista*,int);
+// modifica el elemento.final de el nodo actual de la lista S
+void modificarF(tlista*,int);
 
 #endif
