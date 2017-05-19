@@ -2,16 +2,14 @@
 #include "lista_en.h"
 
 void free(tLista *lista1,tLista *lista2, int byte){
-  int i,j,n,m,u,v;
+  int n,m,u,v;
   elemento a;
-  j = lenght(lista2);
-  for(moveToStart(lista2);i = currentPos(lista2)<j; next(lista2)){
+  for(moveToStart(lista2);currentPos(lista2)<lenght(lista2); next(lista2)){
     a = getValue(lista2);
     n = a.comienzo;
     if (n == byte){
       m = a.final;
       remove(lista2);
-      u = lenght(lista2);
       for(moveToStart(lista1);u = currentPos(lista1)<v; next(lista1)){
       
       
@@ -39,6 +37,7 @@ int Malloc(tLista *lista1,tLista *lista2, int byte){
       append(lista2, a);
       lremove(lista1);
       insert(lista1, b);
+      return 0;
     }
   }
   return -1;
