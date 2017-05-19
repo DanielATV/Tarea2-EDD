@@ -55,8 +55,7 @@ int append(tLista *l, elemento item)
 
 
 }
-
-
+//funciona
 elemento lremove(tLista *l){
 	tNodo *aux = l->curr->sig;
 	elemento item = l->curr->sig->info;
