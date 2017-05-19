@@ -1,7 +1,18 @@
 #include <stdio.h>
 #include "lista_en.h"
 
-void free(tLista *lista1,tLista *lista2, int byte){}
+void free(tLista *lista1,tLista *lista2, int byte){
+  int i,j,n,m;
+  elemento a;
+  j = lenght(lista2);
+  for(moveToStart(lista2);i = currentPos(lista2)<j; next(lista2)){
+    a = getValue(lista2);
+    n = a.comienzo;
+    if (n == byte){
+      
+    }
+  }
+}
 int malloc(tLista *lista1,tLista *lista2, int byte){
   int i,j,k,n,m;
   elemento a,b;
@@ -22,7 +33,7 @@ int malloc(tLista *lista1,tLista *lista2, int byte){
       b.inicial = a.comienzo + k;
       append(lista2, a);
       remove(lista1);
-      append(llista1, b);
+      insert(llista1, b);
     }
   }
   return -1;
