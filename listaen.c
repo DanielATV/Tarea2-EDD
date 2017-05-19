@@ -85,6 +85,7 @@ void prev (tLista* l){
 	l -> pos = aux - 1;
 }
 
+//funciona
 void next(tLista *l)
 {	
 	if(l->curr->sig != l->tail) 
@@ -94,11 +95,11 @@ void next(tLista *l)
 		
 	}
 }
-
-int lenght(tLista *l){
+//funciona
+int length(tLista *l){
 	return l->listSize;
 }
-
+//funciona
 int currPos(tLista *l)
 {	
 	return l->pos;
