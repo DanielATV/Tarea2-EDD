@@ -29,34 +29,31 @@ int insert(tLista *l, elemento item){
 	return 1; //La operacion ocurrio con exito
 }
 //funciona
-int append(tLista* l,elemento item)
+int append(tLista *l, elemento item)
 {
-	tNodo *aux = l->tail->sig;
-	l->tail->sig =  (tNodo *)malloc(sizeof(tNodo));
-	if(l->tail->sig == NULL)
-	{
-	        return 0;
-	}
+	tNodo *temp = (tNodo*)malloc(sizeof(tNodo));
+	if (temp==NULL) return 0;
+	else		
+	//(*temp).data = x;
+	temp->info = item;
 
-	aux->info = item;
-	aux->sig=NULL;
-	
-	
-	
-	
-	if (l->head == NULL)
-	{
-		l->head = aux;
-		l->tail = aux;
 
-	}
+	temp->sig = NULL;
+	if (l->head == NULL) l->head = temp;
 	else
 	{
-		l->tail = aux;
-		
+		tNodo *temp2= l->head;
+		while(temp2->sig!=NULL)
+		{
+			temp2=temp2->sig;
+
+		}
+		temp2->sig = temp;
+
 	}
-	l->listSize++;
 	return 1;
+
+
 }
 
 
@@ -113,6 +110,7 @@ int currPos(tLista *l)
 	return l->pos;
 }
 
+//funciona
 elemento getValue(tLista *l){
 	return l->curr->sig->info;
 }
