@@ -34,27 +34,23 @@ int append(tLista *l, elemento item)
 	tNodo *temp = (tNodo*)malloc(sizeof(tNodo));
 	if (temp==NULL) return 0;
 	else		
-	//(*temp).data = x;
-	temp->info = item;
-
-
-	temp->sig = NULL;
-	if (l->head == NULL) l->head = temp;
-	else
-	{
-		tNodo *temp2= l->head;
-		while(temp2->sig!=NULL)
+		//(*temp).data = x;
+		temp->info = item;
+		temp->sig = NULL;
+		if (l->head == NULL) l->head = temp;
+		else
 		{
-			temp2=temp2->sig;
-
+			tNodo *temp2= l->head;
+			while(temp2->sig!=NULL)
+			{
+				temp2=temp2->sig;
+			}
+			temp2->sig = temp;
 		}
-		temp2->sig = temp;
-
-	}
-	return 1;
-
-
+		return 1;
 }
+
+
 //funciona
 elemento lremove(tLista *l){
 	tNodo *aux = l->curr->sig;
@@ -111,4 +107,30 @@ int currPos(tLista *l)
 //funciona
 elemento getValue(tLista *l){
 	return l->curr->sig->info;
+}
+
+void Print(tLista *L)
+{
+	printf("La lista es:");
+	tNodo *temp2= L->head->sig;
+		
+
+	while(temp2 != NULL)
+	{
+		printf("[%d,%d] ",temp2->info.comienzo,temp2->info.final);
+		temp2 = temp2->sig; 
+	}	
+
+	printf("\n");
+
+
+}
+
+void Printelemento(elemento e)
+{
+	printf("el elemento es:");
+	printf("[%d,%d] ",e.comienzo,e.final);
+	printf("\n");
+
+
 }
