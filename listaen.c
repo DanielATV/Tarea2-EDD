@@ -20,19 +20,19 @@ int insert(tLista *l, elemento item){
 	l->curr->sig = (tNodo *)malloc(sizeof(tNodo));
 	if (l->curr->sig == NULL){
 		l->curr->sig = aux;
-		return 0; //Retorna 0 si falla.
+		return 1; //Retorna 1 si falla.
 	}
 	l->curr->sig->info = item;
 	l->curr->sig->sig = aux;
 	if(l->curr == l->tail) l->tail = l->curr->sig;
 	l->listSize++;
-	return 1; //La operacion ocurrio con exito
+	return 0; //La operacion ocurrio con exito
 }
 //funciona
 int append(tLista *l, elemento item)
 {
 	tNodo *temp = (tNodo*)malloc(sizeof(tNodo));
-	if (temp==NULL) return 0;
+	if (temp==NULL) return 1;
 	else		
 		//(*temp).data = x;
 		temp->info = item;
@@ -47,7 +47,7 @@ int append(tLista *l, elemento item)
 			}
 			temp2->sig = temp;
 		}
-		return 1;
+		return 0;
 }
 
 
@@ -92,14 +92,15 @@ void movetoEnd(tLista *l){
 
 
 //funciona
-void next(tLista *l)
+int next(tLista *l)
 {	
 	if(l->curr->sig != l->tail) 
 	{
 		l->curr = l->curr->sig;
 		l->pos++;
-		
+		return 0;
 	}
+	else	return 1;
 }
 //funciona
 int length(tLista *l){
