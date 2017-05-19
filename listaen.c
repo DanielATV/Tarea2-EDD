@@ -47,6 +47,7 @@ int append(tLista *l, elemento item)
 			}
 			temp2->sig = temp;
 		}
+		l->listSize++;
 		return 0;
 }
 //funciona
