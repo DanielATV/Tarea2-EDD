@@ -21,7 +21,7 @@ typedef struct Lista{
  unsigned int pos; // Posición actual en la lista
 } tLista;
 
-tLista *crearLista(){
+tLista *crearLista2(){
 	tLista* nueva = (tLista *) malloc(sizeof(tLista));
 	/*tNodo* dummy = (tNodo *)malloc(sizeof(tNodo));
 	dummy->sig = NULL;
@@ -39,26 +39,41 @@ tLista *crearLista(){
 	return nueva;
 }
 
-void append(tLista *l, elemento *item)
+tLista *crearLista(){
+	tLista* nueva = (tLista *) malloc(sizeof(tLista));
+	tNodo* dummy = (tNodo *)malloc(sizeof(tNodo));
+	dummy->sig = NULL;
+	nueva->head = dummy;
+	nueva->tail = dummy;
+	nueva->curr = dummy;
+	nueva->listSize = 0;
+	nueva->pos = 0;
+	return nueva;
+}
+
+int append(tLista *l, elemento *item)
 	{
 		tNodo *temp = (tNodo*)malloc(sizeof(tNodo));
-		//(*temp).data = x;
-		temp->info = item;
+		if (temp==NULL) return 0;
+		else		
+			//(*temp).data = x;
+			temp->info = item;
 		
 	
-		temp->sig = NULL;
-		if (l->head == NULL) l->head = temp;
-		else
-		{
-			tNodo *temp2= l->head;
-			while(temp2->sig!=NULL)
+			temp->sig = NULL;
+			if (l->head == NULL) l->head = temp;
+			else
 			{
-				temp2=temp2->sig;
+				tNodo *temp2= l->head;
+				while(temp2->sig!=NULL)
+				{
+					temp2=temp2->sig;
+
+				}
+				temp2->sig = temp;
 
 			}
-			temp2->sig = temp;
-
-		}
+			return 1;
 
 	
 	}
@@ -88,9 +103,9 @@ int append(tLista* l,elemento *item)
 	l->listSize++;
 	return 1;
 }
+
 */
-/*
-int insert(tLista *l, elemento item){
+int insert(tLista *l, elemento *item){
 	tNodo *aux = l->curr->sig;
 	l->curr->sig = (tNodo *)malloc(sizeof(tNodo));
 	if (l->curr->sig == NULL){
@@ -103,21 +118,21 @@ int insert(tLista *l, elemento item){
 	l->listSize++;
 	return 1; //La operacion ocurrio con exito
 }
-*/
+
 
 void Print(tLista *L)
 {
 	printf("La lista es:");
-	tNodo *temp2= L->head;
-		printf("La lista es: ");
+	tNodo *temp2= L->head->sig;
+		
 
-		while(temp2 != NULL)
-		{
-			printf("[%d,%d] ",temp2->info->comienzo,temp2->info->final);
-			temp2 = temp2->sig; 
-		}	
+	while(temp2 != NULL)
+	{
+		printf("[%d,%d] ",temp2->info->comienzo,temp2->info->final);
+		temp2 = temp2->sig; 
+	}	
 
-		printf("\n");
+	printf("\n");
 
 
 }
@@ -130,17 +145,19 @@ int main(){
 	elemento *e2 = (elemento*)malloc(sizeof(elemento));
 	e2->comienzo =3;
 	e2->final = 5;
+
 	
 	tLista *l = crearLista();
+	
 
 	append(l,e1);
-	free(e1);
+	
 
 	append(l,e2);
-	free(e2);
+	
 	
 	Print(l);
-	free(l);
+	
 	
 	return 0;
 }
