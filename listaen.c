@@ -73,7 +73,7 @@ elemento lremove(tLista *l){
 
 void moveToStart(tLista* l){
 	l -> pos = 0;
-	l -> curr = l -> head -> dummy -> sig;
+	l -> curr = l -> head -> sig;
 
 }
 
@@ -113,5 +113,5 @@ int currPos(tLista *l)
 }
 
 elemento getValue(tLista *l){
-	return l->curr->info;
+	return l->curr->sig->info;
 }
