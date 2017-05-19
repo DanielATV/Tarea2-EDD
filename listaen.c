@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 
+//funciona
 tLista *crearLista(){
 	tLista* nueva = (tLista *) malloc(sizeof(tLista));
 	tNodo* dummy = (tNodo *)malloc(sizeof(tNodo));
@@ -13,7 +14,7 @@ tLista *crearLista(){
 	nueva->pos = 0;
 	return nueva;
 }
-
+//funciona
 int insert(tLista *l, elemento item){
 	tNodo *aux = l->curr->sig;
 	l->curr->sig = (tNodo *)malloc(sizeof(tNodo));
@@ -27,7 +28,7 @@ int insert(tLista *l, elemento item){
 	l->listSize++;
 	return 1; //La operacion ocurrio con exito
 }
-
+//funciona
 int append(tLista* l,elemento item)
 {
 	tNodo *aux = l->tail->sig;
