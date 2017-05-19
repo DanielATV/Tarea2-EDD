@@ -2,17 +2,14 @@
 #include <stdio.h>
 #include "listaen.c"
 
-elemento nextValue(tLista *l){
-	return l->curr->sig->sig->info;
-}
-
 int juntar(tLista *l){
 
 	int comienzo1 = getValue(l).comienzo;
 	int final1 = getValue(l).final;
-
-	int comienzo2 = nextValue(l).comienzo;
-	int final2 = nextValue(l).final;
+	next(l);
+	int comienzo2 = getValue(l).comienzo;
+	int final2 = getValue(l).final;
+	prev(l);
 
 	if (final1 == comienzo2-1)
 	{
@@ -35,7 +32,6 @@ void juntartodas(tLista *l)
 	while(currPos(l) < length(l)-1)
 	{
 		if(juntar(l)!=0)next(l);
-		Print(l);
 	}
 
 }
