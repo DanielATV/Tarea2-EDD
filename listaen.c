@@ -73,16 +73,19 @@ void movetoEnd(tLista *l){
 	l->curr = l->tail;
 	l->pos = l->listSize -1;	
 }
-
+//funciona
 void prev (tLista* l){
-	int aux,i;
-	aux = l -> pos;
-	moveToStart(l);
-	for (i = 0; i<aux; i++){
-		curr = l->curr;
-		next(l);
+	
+	tNodo *aux = l->head;
+	
+	while(aux->sig != l->curr){
+		aux = aux->sig;
+	
 	}
-	l -> pos = aux - 1;
+	l->curr = aux;
+	l->pos = (l->pos)-1;
+
+
 }
 
 //funciona
