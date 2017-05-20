@@ -1,17 +1,28 @@
 #include <stdio.h>
 #include "lista_en.h"
 
-void free(tLista *lista1,tLista *lista2, int byte){
-  int n,m,u,v;
-  elemento a;
+void Free(tLista *lista1,tLista *lista2, int byte){
+  int n,m,u,v,pos;
+  elemento a,b;
   for(moveToStart(lista2);currentPos(lista2)<lenght(lista2); next(lista2)){
     a = getValue(lista2);
     n = a.comienzo;
     if (n == byte){
       m = a.final;
-      remove(lista2);
-      for(moveToStart(lista1);u = currentPos(lista1)<v; next(lista1)){
-      
+      for(moveToStart(lista1);currentPos(lista1)<lenght(lista1); next(lista1)){
+        b = getValue(lista1);
+        u = a.comienzo;
+        if (m < u){
+          insert(lista1, b);
+          remove(lista2);
+          return 0;
+        }
+        else if(n > v){
+          
+        }
+        
+        
+      }
       
     }
   }
