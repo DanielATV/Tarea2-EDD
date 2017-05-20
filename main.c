@@ -11,18 +11,20 @@ int Free(tLista *lista1,tLista *lista2, int byte){
       m = a.final;
       for(moveToStart(lista1);currPos(lista1)<length(lista1); next(lista1)){
         b = getValue(lista1);
-        u = a.comienzo;
+        u = b.comienzo;
         if (m < u){
-          insert(lista1, b);
+          insert(lista1, a);
           lremove(lista2);
           return 0;
         }
       }
-      append(lista1, b);
+      append(lista1, a);
       lremove(lista2);
       return 0;
     }
   }
+  
+  return -1;
 }
 
 int Malloc(tLista *lista1,tLista *lista2, int byte){
@@ -52,8 +54,40 @@ int Malloc(tLista *lista1,tLista *lista2, int byte){
   }
   return -1;
 }
+int juntar(tLista *l){
 
-void check(tLista *lista1){}
+	int comienzo1 = getValue(l).comienzo;
+	int final1 = getValue(l).final;
+	next(l);
+	int comienzo2 = getValue(l).comienzo;
+	int final2 = getValue(l).final;
+	prev(l);
+
+	if (final1 == comienzo2-1)
+	{
+		elemento e0;
+		e0.comienzo = comienzo1;
+		e0.final = final2;
+
+		lremove(l);
+
+		modificarC(l,e0.comienzo);	
+		return 0;
+	}
+	return 1;
+
+}
+
+void check(tLista *l)
+{
+	moveToStart(l);
+	while(currPos(l) < length(l)-1)
+	{
+		if(juntar(l)!=0)next(l);
+	}
+
+}
+
 int main(){
   return 0;
 }
