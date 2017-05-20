@@ -2,7 +2,7 @@
 #include "lista_en.h"
 
 void Free(tLista *lista1,tLista *lista2, int byte){
-  int n,m,u,v,pos;
+  int n,m,u,pos;
   elemento a,b;
   for(moveToStart(lista2);currentPos(lista2)<lenght(lista2); next(lista2)){
     a = getValue(lista2);
@@ -17,13 +17,10 @@ void Free(tLista *lista1,tLista *lista2, int byte){
           remove(lista2);
           return 0;
         }
-        else if(n > v){
-          
-        }
-        
-        
       }
-      
+      append(lista1, b);
+      remove(lista2);
+      return 0;
     }
   }
 }
