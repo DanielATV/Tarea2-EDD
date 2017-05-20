@@ -27,11 +27,11 @@ void Free(tLista *lista1,tLista *lista2, int byte){
     }
   }
 }
+
 int Malloc(tLista *lista1,tLista *lista2, int byte){
-  int i,j,k,n,m;
+  int k,n,m;
   elemento a,b;
-  j = length(lista1);
-  for(moveToStart(lista1);i = currPos(lista1)<j; next(lista1)){
+  for(moveToStart(lista1);currPos(lista1) < length(lista1); next(lista1)){
     a = getValue(lista1);
     n = a.comienzo;
     m = a.final;
@@ -43,16 +43,19 @@ int Malloc(tLista *lista1,tLista *lista2, int byte){
     }
     else if ( byte < k){
       b.final = a.final;
-      a.final = a.comienzo + k - 1;
-      b.comienzo = a.comienzo + k;
+      a.final = a.comienzo + byte - 1;
+      b.comienzo = a.comienzo + byte;
       append(lista2, a);
       lremove(lista1);
       insert(lista1, b);
+
+
       return 0;
     }
   }
   return -1;
 }
+
 void check(tLista *lista1){}
 int main(){
   return 0;
