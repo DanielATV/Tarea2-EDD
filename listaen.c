@@ -52,16 +52,15 @@ int append(tLista *l, elemento item)
 }
 //funciona
 elemento lremove(tLista *l){
-	tNodo *aux = l->curr->sig;
 	elemento item = l->curr->sig->info;
-
-	l->curr->sig = l->curr->sig->sig;
-	free((void *)aux);
-	if (l->curr->sig == NULL){ 
+	if (l->curr->sig->sig == NULL){ 
 		l->tail = l->curr;
-		prev(l);
-		l->pos --;
+		l->curr->sig = NULL;
 	}
+	else{	
+		l->curr->sig = l->curr->sig->sig;
+	}
+	l->pos --;
 	l->listSize--;
 	return item;	
 }
