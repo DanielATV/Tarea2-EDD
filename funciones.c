@@ -62,3 +62,33 @@ int Malloc(tLista *lista1,tLista *lista2, int byte){
   }
   return -1;
 }
+
+int main(){
+	
+	elemento e1;
+
+	e1.comienzo =1;
+	e1.final = 1000;
+
+	tLista *l1 = crearLista();
+	tLista *l2 = crearLista();
+	append(l1,e1);
+	
+	Print(l1);
+	Print(l2);
+	
+	Malloc(l1,l2,100);
+	Print(l1);
+	Print(l2);
+
+	Malloc(l1,l2,100);
+	Print(l1);
+	Print(l2);
+	Malloc(l1,l2,100);
+	Print(l1);
+	Print(l2);
+	Malloc(l1,l2,700);
+	Print(l1);
+	Print(l2);
+	return 0;
+}
