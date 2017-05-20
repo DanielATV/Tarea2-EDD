@@ -54,8 +54,9 @@ int Malloc(tLista *lista1,tLista *lista2, int byte){
       a.final = a.comienzo + byte - 1;
       b.comienzo = a.comienzo + byte;
       append(lista2, a);
-      modificarC(lista1,b.comienzo);
-      modificarF(lista1,b.final);
+      lremove(lista1);
+      insert(lista1, b);
+
 
       return 0;
     }
