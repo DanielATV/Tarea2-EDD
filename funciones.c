@@ -26,7 +26,7 @@ int juntar(tLista *l){
 
 }
 
-void juntartodas(tLista *l)
+void check(tLista *l)
 {
 	moveToStart(l);
 	while(currPos(l) < length(l)-1)
