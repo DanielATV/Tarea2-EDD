@@ -18,7 +18,7 @@ int Free(tLista *lista1,tLista *lista2, int byte){
           return 0;
         }
       }
-      append(lista1, a);
+      append(lista1, a); //quizas es b
       lremove(lista2);
       return 0;
     }
