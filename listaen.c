@@ -99,7 +99,10 @@ int next(tLista *l)
 		l->pos++;
 		return 0;
 	}
-	else	return 1;
+	else{
+		l->pos++;
+		return 1;
+	}
 }
 //funciona
 int length(tLista *l){
