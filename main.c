@@ -86,7 +86,7 @@ int juntar(tLista *l){
 void check(tLista *l)
 {
 	moveToStart(l);
-	while(currPos(l) < length(l)-1)
+	while(currPos(l) < length(l)-2)
 	{
 		if(juntar(l)!=0)next(l);
 	}
