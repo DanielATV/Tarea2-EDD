@@ -37,12 +37,12 @@ int Free(tLista *lista1,tLista *lista2, int byte){
         if (m < u){
           insert(lista1, a);
           lremove(lista2);
-          return 0;
+          return m-n+1;
         }
       }
       append(lista1, a); //quizas es b
       lremove(lista2);
-      return 0;
+      return m-n+1;
     }
   }
   
@@ -138,9 +138,9 @@ int main(void){
       fscanf(fp, "%s %d", accion, &byte);
       
       if(strcmp(free,accion)== 0){
-      	Free(lista1,lista2, byte);
+      	int b=Free(lista1,lista2, byte);
       	check(lista1);
-	fprintf(fp2, "Bloque de %d bytes liberado\n",byte);
+	fprintf(fp2, "Bloque de %d bytes liberado\n",b);
       }
       else{ 
       	int a=Malloc(lista1,lista2,byte);
