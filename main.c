@@ -4,24 +4,7 @@
 #include "listaen.c"
 
 
-void creardat(){
-	FILE *fp;
-	fp = fopen("input.dat","w");
-	fprintf(fp, "%d\n",100 );
-	fprintf(fp, "%d\n",9 );
 
-	fprintf(fp, "%s %d\n","malloc",10);
-	fprintf(fp, "%s %d\n","malloc",20);
-	fprintf(fp, "%s %d\n","malloc",10);
-	fprintf(fp, "%s %d\n","malloc",40);
-	fprintf(fp, "%s %d\n","malloc",21);
-	fprintf(fp, "%s %d\n","free",31);
-	fprintf(fp, "%s %d\n","malloc",5);
-	fprintf(fp, "%s %d\n","malloc",10);
-	fprintf(fp, "%s %d\n","malloc",5);
-	fclose(fp);
-
-}
 
 int Free(tLista *lista1,tLista *lista2, int byte){
   int n,m,u;
@@ -112,7 +95,7 @@ void check(tLista *l)
 
 
 int main(void){
-  // creardat();
+  
    FILE *fp;
    tLista *lista1,*lista2;
    elemento item;
