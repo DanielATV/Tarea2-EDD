@@ -87,7 +87,44 @@ void check(tLista *l)
 	}
 
 }
+}
 
-int main(){
-  return 0;
+int main(void){
+   FILE *fp;
+   tLista *lista1,*lista2;
+   elemento item;
+   int i,n,m, byte;
+   char accion[10];
+   char free[]="free";
+
+   lista1 = crearLista();
+   lista2 = crearLista();
+   item.comienzo = 1;
+
+   fp = fopen("input.dat","r");
+
+   fscanf(fp, "%d", &n);
+   item.final = n;
+   append(lista1,item);
+   fscanf(fp, "%d", &m);
+
+   for (i=0;i<m;i++){
+      fscanf(fp, "%s %d", accion, &byte);
+      
+      if(strcmp(free,accion)== 0){
+      	Free(lista1,lista2, byte);
+      	check(lista1);
+      }
+      else{ 
+      	Malloc(lista1,lista2,byte);
+      }
+
+      printf("byte: %d,  accion %s\n", byte, accion);
+      Print(lista1);
+      Print(lista2);
+   }
+
+   fclose(fp);
+
+   return 0;
 }
