@@ -1,5 +1,27 @@
 #include <stdio.h>
-#include "lista_en.h"
+#include "listaen.h"
+#include <string.h>
+#include "listaen.c"
+
+
+void creardat(){
+	FILE *fp;
+	fp = fopen("input.dat","w");
+	fprintf(fp, "%d\n",100 );
+	fprintf(fp, "%d\n",9 );
+
+	fprintf(fp, "%s %d\n","malloc",10);
+	fprintf(fp, "%s %d\n","malloc",20);
+	fprintf(fp, "%s %d\n","malloc",10);
+	fprintf(fp, "%s %d\n","malloc",40);
+	fprintf(fp, "%s %d\n","malloc",21);
+	fprintf(fp, "%s %d\n","free",31);
+	fprintf(fp, "%s %d\n","malloc",5);
+	fprintf(fp, "%s %d\n","malloc",10);
+	fprintf(fp, "%s %d\n","malloc",5);
+	fclose(fp);
+
+}
 
 int Free(tLista *lista1,tLista *lista2, int byte){
   int n,m,u;
@@ -15,12 +37,12 @@ int Free(tLista *lista1,tLista *lista2, int byte){
         if (m < u){
           insert(lista1, a);
           lremove(lista2);
-          return 0;
+          return m-n+1;
         }
       }
       append(lista1, a); //quizas es b
       lremove(lista2);
-      return 0;
+      return m-n+1;
     }
   }
   
@@ -38,7 +60,7 @@ int Malloc(tLista *lista1,tLista *lista2, int byte){
     if (byte == k){
       append(lista2,a);
       lremove(lista1);
-      return 0;
+      return n;
     }
     else if ( byte < k){
       b.final = a.final;
@@ -49,13 +71,13 @@ int Malloc(tLista *lista1,tLista *lista2, int byte){
       insert(lista1, b);
 
 
-      return 0;
+      return n;
     }
   }
   return -1;
 }
 int juntar(tLista *l){
-
+	
 	int comienzo1 = getValue(l).comienzo;
 	int final1 = getValue(l).final;
 	next(l);
@@ -87,9 +109,10 @@ void check(tLista *l)
 	}
 
 }
-}
+
 
 int main(void){
+  // creardat();
    FILE *fp;
    tLista *lista1,*lista2;
    elemento item;
@@ -108,15 +131,21 @@ int main(void){
    append(lista1,item);
    fscanf(fp, "%d", &m);
 
+   FILE *fp2;
+   fp2 =fopen("output.dat","w");
+   
    for (i=0;i<m;i++){
       fscanf(fp, "%s %d", accion, &byte);
       
       if(strcmp(free,accion)== 0){
-      	Free(lista1,lista2, byte);
+      	int b=Free(lista1,lista2, byte);
       	check(lista1);
+	fprintf(fp2, "Bloque de %d bytes liberado\n",b);
       }
       else{ 
-      	Malloc(lista1,lista2,byte);
+      	int a=Malloc(lista1,lista2,byte);
+	if (a!=-1)	fprintf(fp2, "Bloque de %d bytes asignado a partir del byte %d\n",byte,a);
+	else	fprintf(fp2, "Bloque de %d bytes NO puede ser asignado\n",byte);
       }
 
       printf("byte: %d,  accion %s\n", byte, accion);
@@ -125,6 +154,7 @@ int main(void){
    }
 
    fclose(fp);
-
+   fclose(fp2);
    return 0;
 }
+
