@@ -151,3 +151,22 @@ void modificarC(tLista *l,int i){
 void modificarF(tLista *l,int i){
 	l->curr->sig->info.final = i;
 }
+//funciona
+void clearL(tLista *l){
+	int i;
+	tNodo *aux = l->head->sig;
+	tNodo *aux2;
+
+	for(i =0; i < l->listSize ;i++){
+		aux2 = aux->sig;
+		free((void *)aux);
+		aux = aux2;
+
+	}
+	
+	l->head->sig = NULL;
+	l->tail = l->head;
+	l->curr = l->head;
+	l->listSize = 0;
+	l->pos = 0;
+}  
