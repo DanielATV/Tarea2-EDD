@@ -131,13 +131,12 @@ int main(void){
 	else	fprintf(fp2, "Bloque de %d bytes NO puede ser asignado\n",byte);
       }
 
-      printf("byte: %d,  accion %s\n", byte, accion);
-      Print(lista1);
-      Print(lista2);
    }
 
    fclose(fp);
    fclose(fp2);
+   clearL(lista1);
+   clearL(lista2);
    return 0;
 }
 
