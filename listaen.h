@@ -59,5 +59,6 @@ void Printelemento(elemento);
 void modificarC(tLista*,int);
 // modifica el elemento.final de el nodo actual de la lista S
 void modificarF(tLista*,int);
-
+// Resetea la Lista l
+void clearL(tLista*);
 #endif
