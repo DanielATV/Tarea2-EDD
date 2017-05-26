@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include "listaen.h"
 #include <string.h>
-#include "listaen.c"
 
 
 
@@ -60,83 +59,87 @@ int Malloc(tLista *lista1,tLista *lista2, int byte){
   return -1;
 }
 int juntar(tLista *l){
-	
-	int comienzo1 = getValue(l).comienzo;
-	int final1 = getValue(l).final;
+  int comienzo1,comienzo2,final1,final2;
+  elemento aux;
+
+  comienzo1 = getValue(l).comienzo;
+	final1 = getValue(l).final;
 	next(l);
-	int comienzo2 = getValue(l).comienzo;
-	int final2 = getValue(l).final;
+
+  if (currPos(l) < length(l)-1) return -1;
+
+	comienzo2 = getValue(l).comienzo;
+	final2 = getValue(l).final;
 	prev(l);
 
-	if (final1 == comienzo2-1)
-	{
-		elemento e0;
-		e0.comienzo = comienzo1;
-		e0.final = final2;
+	if (final1 == comienzo2-1){
+
+		aux.comienzo = comienzo1;
+		aux.final = final2;
 
 		lremove(l);
-
-		modificarC(l,e0.comienzo);	
+    lremove(l);
+    insert(l,aux);
+	
 		return 0;
 	}
-	return 1;
+	return -1;
 
 }
 
 void check(tLista *l)
 {
-	moveToStart(l);
-	while(currPos(l) < length(l)-2)
-	{
-		if(juntar(l)!=0)next(l);
+  moveToStart(l);
+	while(currPos(l) < length(l)-1){
+		if(juntar(l)!= 0)next(l);
 	}
 
 }
 
 
 int main(void){
-  
-   FILE *fp;
-   tLista *lista1,*lista2;
-   elemento item;
-   int i,n,m, byte;
-   char accion[10];
-   char free[]="free";
+  FILE *fp;
+  tLista *lista1,*lista2;
+  elemento item;
+  int i,n,m,a,b,byte;
+  char accion[10];
+  char free[]="free";
 
-   lista1 = crearLista();
-   lista2 = crearLista();
-   item.comienzo = 1;
+  lista1 = crearLista();
+  lista2 = crearLista();
+  item.comienzo = 1;
 
-   fp = fopen("input.dat","r");
+  fp = fopen("input.dat","r");
 
-   fscanf(fp, "%d", &n);
-   item.final = n;
-   append(lista1,item);
-   fscanf(fp, "%d", &m);
+  fscanf(fp, "%d", &n);
+  item.final = n;
+  append(lista1,item);
+  fscanf(fp, "%d", &m);
 
-   FILE *fp2;
-   fp2 =fopen("output.dat","w");
-   
-   for (i=0;i<m;i++){
-      fscanf(fp, "%s %d", accion, &byte);
-      
-      if(strcmp(free,accion)== 0){
-      	int b=Free(lista1,lista2, byte);
-      	check(lista1);
-	fprintf(fp2, "Bloque de %d bytes liberado\n",b);
-      }
-      else{ 
-      	int a=Malloc(lista1,lista2,byte);
-	if (a!=-1)	fprintf(fp2, "Bloque de %d bytes asignado a partir del byte %d\n",byte,a);
-	else	fprintf(fp2, "Bloque de %d bytes NO puede ser asignado\n",byte);
-      }
+  FILE *fp2;
+  fp2 =fopen("output.dat","w");
 
-   }
+  for (i=0;i<m;i++){
+    fscanf(fp, "%s %d", accion, &byte);
+    
+    
+    if(strcmp(free,accion)== 0){
+    	b = Free(lista1,lista2, byte);
+    	check(lista1);
+      fprintf(fp2, "Bloque de %d bytes liberado\n",b);
+    }
+    else {
+      a = Malloc(lista1,lista2,byte);
+      if (a!=-1) fprintf(fp2, "Bloque de %d bytes asignado a partir del byte %d\n",byte,a);
+      else  fprintf(fp2, "Bloque de %d bytes NO puede ser asignado\n",byte);
+    }
 
-   fclose(fp);
-   fclose(fp2);
-   clearL(lista1);
-   clearL(lista2);
-   return 0;
+  }
+
+  fclose(fp);
+  fclose(fp2);
+  clearL(lista1);
+  clearL(lista2);
+  return 0;
 }
 
