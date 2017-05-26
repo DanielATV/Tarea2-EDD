@@ -87,7 +87,7 @@ void prev (tLista* l){
 //funciona
 void movetoEnd(tLista *l){
 	l->curr = l->tail;
-	l->pos = l->listSize;
+	l->pos = l->listSize -1;
 }
 //funciona
 int next(tLista *l)
@@ -100,7 +100,7 @@ int next(tLista *l)
 	}
 	else{
 		l->pos++;
-		return 1;
+		return 0;
 	}
 }
 //funciona
@@ -142,14 +142,7 @@ void Printelemento(elemento e)
 
 
 }
-//funciona
-void modificarC(tLista *l,int i){
-	l->curr->sig->info.comienzo = i;
-}
-//funciona
-void modificarF(tLista *l,int i){
-	l->curr->sig->info.final = i;
-}
+
 //funciona
 void clearL(tLista *l){
 	int i;
