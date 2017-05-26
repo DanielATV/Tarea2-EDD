@@ -1,0 +1,14 @@
+Nombre: Sebastian Godinez
+ROL: 201673520-8
+Paralelo: 201
+Programas: TDA, Check, juntar
+
+Nombre: Fabian Jimenez
+ROL: 2016735 -
+Paralelo: 201
+Programas: TDA, Check, juntar
+
+Nombre: Daniel Toro
+ROL: 201673595-k
+Paralelo: 201
+Programas: TDA, Malloc, Free
