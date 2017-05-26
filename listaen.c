@@ -87,8 +87,7 @@ void prev (tLista* l){
 //funciona
 void movetoEnd(tLista *l){
 	l->curr = l->tail;
-	l->pos = l->listSize -1;
-	prev(l);
+	l->pos = l->listSize;
 }
 //funciona
 int next(tLista *l)
