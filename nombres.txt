@@ -4,11 +4,11 @@ Paralelo: 201
 Programas: TDA, Check, juntar
 
 Nombre: Fabian Jimenez
-ROL: 2016735 -
+ROL: 201673503-8
 Paralelo: 201
-Programas: TDA, Check, juntar
+Programas: TDA, Check, juntar, main
 
 Nombre: Daniel Toro
 ROL: 201673595-k
 Paralelo: 201
-Programas: TDA, Malloc, Free
+Programas: TDA, Malloc, Free, main
