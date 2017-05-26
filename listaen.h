@@ -55,10 +55,6 @@ elemento getValue (tLista*);
 void Print(tLista *); 
 // imprime un elemento F
 void Printelemento(elemento);
-// modifica el elemento.comienzo de el nodo actual de la lista S
-void modificarC(tLista*,int);
-// modifica el elemento.final de el nodo actual de la lista S
-void modificarF(tLista*,int);
 // Resetea la Lista l
 void clearL(tLista*);
 #endif
